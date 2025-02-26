@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BenchSmart.ai | Advanced Judicial Intelligence</title>
+    <title>BenchSmart.ai | Judicial Innovation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -339,59 +339,46 @@
             font-size: 1rem;
         }
         
-        /* Process Section */
-        .process {
+        /* Approach Section */
+        .approach {
             padding: 8rem 0;
             background-color: var(--primary);
             position: relative;
         }
         
-        .process-timeline {
+        .approach-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 3rem;
             margin-top: 3rem;
         }
         
-        .timeline-item {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .timeline-number {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent), #00bfff);
-            color: var(--light);
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 5px 15px rgba(58, 134, 255, 0.3);
-        }
-        
-        .timeline-content {
+        .approach-item {
             background: rgba(255, 255, 255, 0.03);
             border-radius: 16px;
             padding: 2rem;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            height: 100%;
+            text-align: center;
+            transition: all 0.3s;
         }
         
-        .timeline-title {
-            font-size: 1.3rem;
+        .approach-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(58, 134, 255, 0.2);
+        }
+        
+        .approach-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent), #00bfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .approach-title {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: var(--accent);
-        }
-        
-        .timeline-description {
-            opacity: 0.8;
-            font-size: 1rem;
         }
         
         /* Testimonial Section */
@@ -663,12 +650,12 @@
                 <i class="fas fa-gavel"></i> BenchSmart.ai
             </div>
             <div class="nav-links">
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#process" class="nav-link">How It Works</a>
-                <a href="#testimonial" class="nav-link">Testimonials</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#features" class="nav-link">Vision</a>
+                <a href="#approach" class="nav-link">Approach</a>
+                <a href="#testimonial" class="nav-link">Insights</a>
+                <a href="#contact" class="nav-link">Connect</a>
             </div>
-            <a href="#contact" class="cta-button">Get Started</a>
+            <a href="#contact" class="cta-button">Early Access</a>
         </div>
     </nav>
 
@@ -676,11 +663,11 @@
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <h1>Advanced AI For Judicial Intelligence</h1>
-                <p>Leveraging cutting-edge artificial intelligence to transform case evaluation with unprecedented insight and efficiency.</p>
+                <h1>Reimagining Judicial Intelligence</h1>
+                <p>Where technology meets legal expertise to unlock new possibilities.</p>
                 <div class="hero-cta">
-                    <a href="#features" class="cta-button">Explore Features</a>
-                    <a href="#contact" class="secondary-cta">Request Demo</a>
+                    <a href="#features" class="cta-button">Discover</a>
+                    <a href="#contact" class="secondary-cta">Join Waitlist</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -769,31 +756,79 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Advanced Features</h2>
-                <p class="section-subtitle">Our platform combines state-of-the-art AI with judicial expertise</p>
+                <h2 class="section-title">Our Vision</h2>
+                <p class="section-subtitle">At the intersection of innovation and tradition</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-balance-scale"></i>
+                        <i class="fas fa-lightbulb"></i>
                     </div>
-                    <h3 class="feature-title">Neutral Evaluation</h3>
-                    <p class="feature-description">Our AI maintains strict neutrality throughout the assessment process, ensuring balanced evaluations free from bias.</p>
+                    <h3 class="feature-title">Evolutionary Insight</h3>
+                    <p class="feature-description">Pioneering new perspectives through advanced technology.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
+                        <i class="fas fa-balance-scale"></i>
                     </div>
-                    <h3 class="feature-title">AI-Enhanced Insights</h3>
-                    <p class="feature-description">Advanced algorithms analyze complex information to identify patterns and relationships that might otherwise remain hidden.</p>
+                    <h3 class="feature-title">Principled Foundation</h3>
+                    <p class="feature-description">Built on core values of integrity, neutrality, and excellence.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3 class="feature-title">Confidential Processing</h3>
-                    <p class="feature-description">Your sensitive information remains secure with enterprise-grade security protocols and confidential handling.</p>
+                    <h3 class="feature-title">Future Ready</h3>
+                    <p class="feature-description">Designed for the evolving landscape of judicial practice.</p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Approach Section -->
+    <section class="approach" id="approach">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Approach</h2>
+                <p class="section-subtitle">Bridging tradition and innovation</p>
+            </div>
+            <div class="approach-grid">
+                <div class="approach-item">
+                    <div class="approach-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="approach-title">Intelligence</h3>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="approach-title">Insight</h3>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="approach-title">Integrity</h3>
+                </div>
+                <div class="approach-item">
+                    <div class="approach-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="approach-title">Innovation</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial" id="testimonial">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Expert Insights</h2>
+                <p class="section-subtitle">Perspectives from the forefront</p>
+            </div>
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "A transformative approach that complements and enhances traditional methods
