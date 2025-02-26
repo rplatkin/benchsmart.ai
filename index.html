@@ -3,414 +3,830 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BenchSmart.ai | Judicial Intelligence</title>
+    <title>BenchSmart.ai | Advanced Judicial Intelligence</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #34495e;
-            --accent: #3498db;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
+            --primary: #0b132b;
+            --secondary: #1c2541;
+            --accent: #3a86ff;
+            --accent-light: #5390ff;
+            --light: #f8f9fa;
+            --text: #e0e1dd;
+            --dark-blue: #03045e;
+            --gradient: linear-gradient(135deg, #0b132b, #1c2541);
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
         }
         
         body {
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: var(--primary);
+            color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1.5rem 0;
-            text-align: center;
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(11, 19, 43, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .logo {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
+            background: linear-gradient(90deg, var(--accent), #00bfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
         }
         
-        .logo span {
+        .logo i {
+            margin-right: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover {
             color: var(--accent);
         }
         
-        .hero {
-            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('/api/placeholder/1200/600') center/cover;
-            color: white;
-            padding: 5rem 2rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .hero-image {
-            width: 80%;
-            max-width: 600px;
-            margin: 2rem auto;
+        .nav-link:hover::after {
+            width: 100%;
         }
         
         .cta-button {
-            display: inline-block;
             background-color: var(--accent);
-            color: white;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            border-radius: 5px;
-            text-decoration: none;
+            color: var(--light);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
             font-weight: 600;
-            transition: background-color 0.3s;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(58, 134, 255, 0.3);
         }
         
         .cta-button:hover {
-            background-color: #2980b9;
+            background-color: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(58, 134, 255, 0.4);
         }
         
+        /* Hero Section */
+        .hero {
+            padding: 10rem 0 6rem;
+            position: relative;
+            overflow: hidden;
+            background: var(--gradient);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1200/800') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .secondary-cta {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--accent);
+            background-color: rgba(58, 134, 255, 0.1);
+            border: 1px solid var(--accent);
+            transition: all 0.3s;
+        }
+        
+        .secondary-cta:hover {
+            background-color: rgba(58, 134, 255, 0.2);
+        }
+        
+        .hero-image {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(58, 134, 255, 0.1);
+            border-radius: 50%;
+            border: 1px solid rgba(58, 134, 255, 0.3);
+            animation: float 10s infinite ease-in-out;
+        }
+        
+        .el-1 {
+            width: 100px;
+            height: 100px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .el-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            right: 5%;
+            animation-delay: 1s;
+        }
+        
+        .el-3 {
+            width: 80px;
+            height: 80px;
+            bottom: 10%;
+            left: 20%;
+            animation-delay: 2s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        /* Features Section */
         .features {
-            padding: 4rem 2rem;
-            background-color: white;
+            padding: 8rem 0;
+            background-color: var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .features::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: var(--primary);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+        }
+        
+        .section-header {
             text-align: center;
+            margin-bottom: 4rem;
         }
         
         .section-title {
-            font-size: 2rem;
-            margin-bottom: 3rem;
-            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 700px;
+            margin: 0 auto;
         }
         
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
         }
         
         .feature-card {
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            transition: transform 0.3s;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(58, 134, 255, 0.2);
         }
         
         .feature-icon {
-            font-size: 4rem;
-            color: var(--accent);
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent), #00bfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .feature-title {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        
-        .process {
-            padding: 4rem 2rem;
-            background-color: var(--light);
-        }
-        
-        .process-flow {
-            display: flex;
-            justify-content: space-between;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .process-flow::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 10%;
-            right: 10%;
-            height: 3px;
-            background-color: var(--accent);
-            z-index: 1;
-        }
-        
-        .process-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 140px;
-            z-index: 2;
-        }
-        
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background-color: var(--accent);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            font-weight: bold;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
         
-        .step-title {
-            text-align: center;
-            font-weight: 600;
-            color: var(--primary);
+        .feature-description {
+            opacity: 0.8;
+            font-size: 1rem;
         }
         
-        .testimonial {
-            padding: 4rem 2rem;
-            background-color: white;
-            text-align: center;
+        /* Process Section */
+        .process {
+            padding: 8rem 0;
+            background-color: var(--primary);
+            position: relative;
         }
         
-        .testimonial-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            background-color: var(--light);
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .timeline-item {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .timeline-number {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #00bfff);
+            color: var(--light);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(58, 134, 255, 0.3);
+        }
+        
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            height: 100%;
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
             color: var(--accent);
         }
         
-        .contact {
-            padding: 4rem 2rem;
-            background-color: var(--primary);
-            color: white;
-            text-align: center;
+        .timeline-description {
+            opacity: 0.8;
+            font-size: 1rem;
         }
         
-        .contact-icons {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin: 2rem 0;
+        /* Testimonial Section */
+        .testimonial {
+            padding: 8rem 0;
+            background-color: var(--secondary);
+            position: relative;
         }
         
-        .contact-icon {
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--accent);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
             display: flex;
-            flex-direction: column;
             align-items: center;
         }
         
-        .icon {
-            font-size: 2.5rem;
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--light);
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .author-info p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 8rem 0;
+            background-color: var(--primary);
+            position: relative;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .contact-details h3 {
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
         
+        .contact-details p {
+            opacity: 0.8;
+        }
+        
         .contact-form {
-            max-width: 500px;
-            margin: 2rem auto 0;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .form-group {
             margin-bottom: 1.5rem;
-            text-align: left;
         }
         
-        .form-group input,
-        .form-group textarea {
+        .form-control {
             width: 100%;
-            padding: 0.8rem;
-            border: none;
-            border-radius: 4px;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 1rem;
+            transition: all 0.3s;
         }
         
-        .submit-button {
-            background-color: var(--accent);
-            color: white;
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            background-color: rgba(255, 255, 255, 0.07);
+        }
+        
+        .form-control::placeholder {
+            color: rgba(224, 225, 221, 0.5);
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, var(--accent), #00bfff);
+            color: var(--light);
             border: none;
             padding: 1rem 2rem;
-            font-size: 1.1rem;
-            border-radius: 5px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(58, 134, 255, 0.3);
         }
         
-        .submit-button:hover {
-            background-color: #2980b9;
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(58, 134, 255, 0.4);
         }
         
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 1.5rem;
+        /* Footer */
+        .footer {
+            background-color: var(--dark-blue);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--accent), #00bfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+        
+        .footer-link-list {
+            list-style: none;
+        }
+        
+        .footer-link-list li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-link {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+            opacity: 0.8;
+        }
+        
+        .footer-link:hover {
+            color: var(--accent);
+            opacity: 1;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
             text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-cta {
+                justify-content: center;
+            }
+            
+            .hero-image {
+                margin-top: 3rem;
+                order: 2;
+            }
         }
         
         @media (max-width: 768px) {
-            .process-flow {
+            .navbar-content {
                 flex-direction: column;
-                align-items: center;
-                gap: 2rem;
+                gap: 1rem;
             }
             
-            .process-flow::before {
-                top: 10%;
-                bottom: 10%;
-                left: 40px;
-                width: 3px;
-                height: auto;
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
             
-            .contact-icons {
-                flex-direction: column;
-                gap: 1.5rem;
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">Bench<span>Smart</span>.ai</div>
-    </header>
-    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="logo">
+                <i class="fas fa-gavel"></i> BenchSmart.ai
+            </div>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#process" class="nav-link">How It Works</a>
+                <a href="#testimonial" class="nav-link">Testimonials</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
     <section class="hero">
-        <h1>The Future of Judicial Intelligence</h1>
-        <svg class="hero-image" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
-            <!-- Justice scales with AI elements -->
-            <rect x="0" y="0" width="600" height="400" fill="none" />
-            
-            <!-- Scales base -->
-            <rect x="275" y="150" width="50" height="200" fill="#3498db" />
-            
-            <!-- Scale arm -->
-            <rect x="175" y="150" width="250" height="10" fill="#3498db" />
-            
-            <!-- Left scale -->
-            <circle cx="175" cy="200" r="40" fill="#ecf0f1" stroke="#3498db" stroke-width="3" />
-            <text x="175" y="205" font-size="14" text-anchor="middle" fill="#2c3e50">DATA</text>
-            
-            <!-- Right scale -->
-            <circle cx="425" cy="200" r="40" fill="#ecf0f1" stroke="#3498db" stroke-width="3" />
-            <text x="425" y="205" font-size="14" text-anchor="middle" fill="#2c3e50">AI</text>
-            
-            <!-- Digital circuit patterns -->
-            <path d="M175,240 L175,280 L275,280 L275,330" stroke="#3498db" stroke-width="2" fill="none" />
-            <path d="M425,240 L425,280 L325,280 L325,330" stroke="#3498db" stroke-width="2" fill="none" />
-            
-            <!-- Circuit nodes -->
-            <circle cx="175" cy="280" r="5" fill="#3498db" />
-            <circle cx="275" cy="280" r="5" fill="#3498db" />
-            <circle cx="425" cy="280" r="5" fill="#3498db" />
-            <circle cx="325" cy="280" r="5" fill="#3498db" />
-            <circle cx="275" cy="330" r="5" fill="#3498db" />
-            <circle cx="325" cy="330" r="5" fill="#3498db" />
-            
-            <!-- Digital brain -->
-            <circle cx="300" cy="100" r="50" fill="none" stroke="#3498db" stroke-width="3" />
-            <path d="M275,80 C285,70 315,70 325,80" stroke="#3498db" stroke-width="2" fill="none" />
-            <path d="M275,120 C285,130 315,130 325,120" stroke="#3498db" stroke-width="2" fill="none" />
-            <path d="M260,100 L280,100" stroke="#3498db" stroke-width="2" />
-            <path d="M320,100 L340,100" stroke="#3498db" stroke-width="2" />
-            <path d="M300,150 L300,170" stroke="#3498db" stroke-width="2" />
-            
-            <!-- Circuit lines from brain -->
-            <path d="M300,150 L300,150" stroke="#3498db" stroke-width="2" />
-            
-            <!-- Connecting lines -->
-            <path d="M300,150 L300,150" stroke="#3498db" stroke-width="2" />
-            <path d="M260,100 L240,100 L240,150 L175,150" stroke="#3498db" stroke-width="2" fill="none" />
-            <path d="M340,100 L360,100 L360,150 L425,150" stroke="#3498db" stroke-width="2" fill="none" />
-        </svg>
-        <a href="#contact" class="cta-button">Learn More</a>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>Advanced AI For Judicial Intelligence</h1>
+                <p>Leveraging cutting-edge artificial intelligence to transform case evaluation with unprecedented insight and efficiency.</p>
+                <div class="hero-cta">
+                    <a href="#features" class="cta-button">Explore Features</a>
+                    <a href="#contact" class="secondary-cta">Request Demo</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-container">
+                    <svg width="100%" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Main circle -->
+                        <circle cx="300" cy="200" r="150" fill="none" stroke="#3a86ff" stroke-width="1" stroke-dasharray="5,5" />
+                        
+                        <!-- Digital circuits -->
+                        <path d="M150,200 L450,200" stroke="#3a86ff" stroke-width="1" stroke-dasharray="10,5" />
+                        <path d="M300,50 L300,350" stroke="#3a86ff" stroke-width="1" stroke-dasharray="10,5" />
+                        
+                        <!-- Scales of Justice -->
+                        <path d="M300,180 L300,280" stroke="#3a86ff" stroke-width="2" />
+                        <path d="M250,180 L350,180" stroke="#3a86ff" stroke-width="2" />
+                        
+                        <!-- Left scale -->
+                        <circle cx="250" cy="220" r="30" fill="none" stroke="#3a86ff" stroke-width="2" />
+                        <text x="250" y="225" font-size="12" text-anchor="middle" fill="#e0e1dd">DATA</text>
+                        
+                        <!-- Right scale -->
+                        <circle cx="350" cy="220" r="30" fill="none" stroke="#3a86ff" stroke-width="2" />
+                        <text x="350" y="225" font-size="12" text-anchor="middle" fill="#e0e1dd">AI</text>
+                        
+                        <!-- Brain nodes -->
+                        <circle cx="300" cy="120" r="40" fill="none" stroke="#3a86ff" stroke-width="2" />
+                        <path d="M280,110 C290,95 310,95 320,110" stroke="#3a86ff" stroke-width="1.5" fill="none" />
+                        <path d="M280,130 C290,145 310,145 320,130" stroke="#3a86ff" stroke-width="1.5" fill="none" />
+                        
+                        <!-- Connection lines -->
+                        <path d="M300,160 L300,180" stroke="#3a86ff" stroke-width="1.5" />
+                        
+                        <!-- Neural network nodes -->
+                        <circle cx="200" cy="100" r="5" fill="#3a86ff" />
+                        <circle cx="240" cy="130" r="5" fill="#3a86ff" />
+                        <circle cx="180" cy="140" r="5" fill="#3a86ff" />
+                        <circle cx="400" cy="100" r="5" fill="#3a86ff" />
+                        <circle cx="360" cy="130" r="5" fill="#3a86ff" />
+                        <circle cx="420" cy="140" r="5" fill="#3a86ff" />
+                        
+                        <!-- Neural connections -->
+                        <line x1="200" y1="100" x2="240" y2="130" stroke="#3a86ff" stroke-width="1" opacity="0.6" />
+                        <line x1="240" y1="130" x2="180" y2="140" stroke="#3a86ff" stroke-width="1" opacity="0.6" />
+                        <line x1="180" y1="140" x2="200" y2="100" stroke="#3a86ff" stroke-width="1" opacity="0.6" />
+                        <line x1="400" y1="100" x2="360" y2="130" stroke="#3a86ff" stroke-width="1" opacity="0.6" />
+                        <line x1="360" y1="130" x2="420" y2="140" stroke="#3a86ff" stroke-width="1" opacity="0.6" />
+                        <line x1="420" y1="140" x2="400" y2="100" stroke="#3a86ff" stroke-width="1" opacity="0.6" />
+                        
+                        <!-- Connect to brain -->
+                        <line x1="240" y1="130" x2="280" y2="120" stroke="#3a86ff" stroke-width="1" opacity="0.6" />
+                        <line x1="360" y1="130" x2="320" y2="120" stroke="#3a86ff" stroke-width="1" opacity="0.6" />
+                        
+                        <!-- Document icons -->
+                        <rect x="200" y="250" width="25" height="35" fill="none" stroke="#3a86ff" stroke-width="1" />
+                        <line x1="205" y1="260" x2="220" y2="260" stroke="#3a86ff" stroke-width="1" />
+                        <line x1="205" y1="270" x2="220" y2="270" stroke="#3a86ff" stroke-width="1" />
+                        <line x1="205" y1="280" x2="220" y2="280" stroke="#3a86ff" stroke-width="1" />
+                        
+                        <rect x="400" y="250" width="25" height="35" fill="none" stroke="#3a86ff" stroke-width="1" />
+                        <line x1="405" y1="260" x2="420" y2="260" stroke="#3a86ff" stroke-width="1" />
+                        <line x1="405" y1="270" x2="420" y2="270" stroke="#3a86ff" stroke-width="1" />
+                        <line x1="405" y1="280" x2="420" y2="280" stroke="#3a86ff" stroke-width="1" />
+                        
+                        <!-- Gavel -->
+                        <rect x="290" y="300" width="20" height="5" fill="#3a86ff" />
+                        <path d="M300,300 L300,290 L310,280 L320,290 L310,300" fill="none" stroke="#3a86ff" stroke-width="1.5" />
+                        
+                        <!-- Animated pulse -->
+                        <circle cx="300" cy="200" r="150" fill="none" stroke="#3a86ff" stroke-width="1" opacity="0.5">
+                            <animate attributeName="r" from="150" to="160" dur="2s" begin="0s" repeatCount="indefinite" />
+                            <animate attributeName="opacity" from="0.5" to="0" dur="2s" begin="0s" repeatCount="indefinite" />
+                        </circle>
+                    </svg>
+                    
+                    <div class="floating-elements">
+                        <div class="floating-element el-1"></div>
+                        <div class="floating-element el-2"></div>
+                        <div class="floating-element el-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    
-    <section class="features">
-        <h2 class="section-title">Our Approach</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">⚖️</div>
-                <h3 class="feature-title">Neutral Evaluation</h3>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Advanced Features</h2>
+                <p class="section-subtitle">Our platform combines state-of-the-art AI with judicial expertise</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">🧠</div>
-                <h3 class="feature-title">AI Insights</h3>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3 class="feature-title">Confidential</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="feature-title">Neutral Evaluation</h3>
+                    <p class="feature-description">Our AI maintains strict neutrality throughout the assessment process, ensuring balanced evaluations free from bias.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="feature-title">AI-Enhanced Insights</h3>
+                    <p class="feature-description">Advanced algorithms analyze complex information to identify patterns and relationships that might otherwise remain hidden.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Confidential Processing</h3>
+                    <p class="feature-description">Your sensitive information remains secure with enterprise-grade security protocols and confidential handling.</p>
+                </div>
             </div>
         </div>
     </section>
-    
-    <section class="process">
-        <h2 class="section-title" style="text-align: center;">Simple Process</h2>
-        <div class="process-flow">
-            <div class="process-step">
-                <div class="step-number">1</div>
-                <div class="step-title">Submit</div>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">A streamlined process designed for efficiency and accuracy</p>
             </div>
-            <div class="process-step">
-                <div class="step-number">2</div>
-                <div class="step-title">Analyze</div>
-            </div>
-            <div class="process-step">
-                <div class="step-number">3</div>
-                <div class="step-title">Evaluate</div>
-            </div>
-            <div class="process-step">
-                <div class="step-number">4</div>
-                <div class="step-title">Decide</div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="testimonial">
-        <h2 class="section-title">What Professionals Say</h2>
-        <div class="testimonial-image">👨‍⚖️</div>
-        <p style="max-width: 600px; margin: 0 auto; font-style: italic;">"A remarkable perspective that complements traditional evaluation methods."</p>
-    </section>
-    
-    <section class="contact" id="contact">
-        <h2 class="section-title">Contact Us</h2>
-        <div class="contact-icons">
-            <div class="contact-icon">
-                <div class="icon">📧</div>
-                <span>info@benchsmart.ai</span>
-            </div>
-            <div class="contact-icon">
-                <div class="icon">📱</div>
-                <span>888-555-1234</span>
-            </div>
-        </div>
-        <div class="contact-form">
-            <div class="form-group">
-                <input type="text" placeholder="Name" required>
-            </div>
-            <div class="form-group">
-                <input type="email" placeholder="Email" required>
-            </div>
-            <div class="form-group">
-                <textarea placeholder="Message" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="submit-button">Send</button>
-        </div>
-    </section>
-    
-    <footer>
-        &copy; 2025 BenchSmart.ai
-    </footer>
-</body>
-</html>
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Submit</h3>
+                        <p class="timeline-description">Securely upload case documents and relevant information to our platform.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Analyze</h3>
+                        <p class="timeline-description">Our AI engine processes the information, identifying key elements and patterns.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Evaluate</h3>
+                        <p class="timeline-description">The system provides comprehensive analysis and evaluation based on the data.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <div class
