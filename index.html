@@ -57,18 +57,19 @@
         }
         
         .logo {
-            font-size: 1.8rem;
+            font-size: 2.4rem;
             font-weight: 700;
             background: linear-gradient(90deg, var(--accent), #00bfff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: flex;
             align-items: center;
+            letter-spacing: 0.5px;
         }
         
         .logo i {
-            margin-right: 0.5rem;
-            font-size: 1.5rem;
+            margin-right: 0.8rem;
+            font-size: 2rem;
         }
         
         .nav-links {
@@ -214,6 +215,22 @@
             border-radius: 50%;
             border: 1px solid rgba(58, 134, 255, 0.3);
             animation: float 10s infinite ease-in-out;
+        }
+        
+        .floating-gavel {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            animation: rotate 15s infinite linear;
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
         
         .el-1 {
@@ -647,7 +664,7 @@
     <nav class="navbar">
         <div class="container navbar-content">
             <div class="logo">
-                <i class="fas fa-gavel"></i> BenchSmart.ai
+                <i class="fas fa-gavel"></i> <span style="font-size: 1.1em;">BenchSmart</span><span style="font-size: 0.8em;">.ai</span>
             </div>
             <div class="nav-links">
                 <a href="#features" class="nav-link">Vision</a>
@@ -663,7 +680,7 @@
     <section class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <h1>Reimagining Judicial Intelligence</h1>
+                <h1>Reimagining Judicial Intelligence <i class="fas fa-gavel" style="font-size: 0.8em; vertical-align: middle; opacity: 0.8;"></i></h1>
                 <p>Where technology meets legal expertise to unlock new possibilities.</p>
                 <div class="hero-cta">
                     <a href="#features" class="cta-button">Discover</a>
@@ -699,6 +716,27 @@
                         
                         <!-- Connection lines -->
                         <path d="M300,160 L300,180" stroke="#3a86ff" stroke-width="1.5" />
+                        
+                        <!-- Gavel icons in various positions -->
+                        <g transform="translate(165,80) scale(0.6)">
+                            <rect x="10" y="0" width="20" height="8" fill="#3a86ff" />
+                            <path d="M20,0 L20,-15 L35,0 L20,15 L20,0" fill="none" stroke="#3a86ff" stroke-width="1.5" />
+                        </g>
+                        
+                        <g transform="translate(420,85) scale(0.6)">
+                            <rect x="10" y="0" width="20" height="8" fill="#3a86ff" />
+                            <path d="M20,0 L20,-15 L35,0 L20,15 L20,0" fill="none" stroke="#3a86ff" stroke-width="1.5" />
+                        </g>
+                        
+                        <g transform="translate(400,320) scale(0.6)">
+                            <rect x="10" y="0" width="20" height="8" fill="#3a86ff" />
+                            <path d="M20,0 L20,-15 L35,0 L20,15 L20,0" fill="none" stroke="#3a86ff" stroke-width="1.5" />
+                        </g>
+                        
+                        <g transform="translate(180,300) scale(0.6)">
+                            <rect x="10" y="0" width="20" height="8" fill="#3a86ff" />
+                            <path d="M20,0 L20,-15 L35,0 L20,15 L20,0" fill="none" stroke="#3a86ff" stroke-width="1.5" />
+                        </g>
                         
                         <!-- Neural network nodes -->
                         <circle cx="200" cy="100" r="5" fill="#3a86ff" />
@@ -746,6 +784,18 @@
                         <div class="floating-element el-1"></div>
                         <div class="floating-element el-2"></div>
                         <div class="floating-element el-3"></div>
+                        <div class="floating-gavel" style="top: 15%; right: 25%;">
+                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="16" width="20" height="8" fill="rgba(58, 134, 255, 0.3)" />
+                                <path d="M20,16 L20,6 L30,16 L20,26 L20,16" fill="none" stroke="rgba(58, 134, 255, 0.4)" stroke-width="1.5" />
+                            </svg>
+                        </div>
+                        <div class="floating-gavel" style="bottom: 20%; left: 10%;">
+                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="16" width="20" height="8" fill="rgba(58, 134, 255, 0.3)" />
+                                <path d="M20,16 L20,6 L30,16 L20,26 L20,16" fill="none" stroke="rgba(58, 134, 255, 0.4)" stroke-width="1.5" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
             </div>
